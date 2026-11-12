@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apex Core Holdings | Brief & Onboarding</title>
+<meta name="robots" content="noindex">
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<style type="text/tailwindcss">
+  @theme {
+    --color-navy: #0b1f4b;
+    --color-navy2: #07163a;
+    --color-gold: #ffc24b;
+    --color-ink: #14213d;
+    --color-mute: #5b6784;
+    --color-bgalt: #f5f7fc;
+    --color-line: #e3e8f5;
+    --color-red-err: #b4413b;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* Hide scrollbar for a cleaner look */
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #f1f1f1; }
+  ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+</style>
+</head>
+<body class="bg-bgalt text-ink leading-relaxed min-h-screen flex flex-col">
+
+<header class="bg-navy2 text-white py-4 shadow-md">
+  <div class="max-w-3xl mx-auto px-6 flex justify-between items-center">
+    <a href="/" class="font-extrabold tracking-widest text-lg hover:opacity-90 transition-opacity">APEX <span class="text-gold">CORE</span> HOLDINGS</a>
+    <a href="/" class="text-sm font-semibold text-gray-300 hover:text-white transition-colors">&larr; Back to Home</a>
+  </div>
+</header>
+
+<div class="bg-gradient-to-br from-navy2 to-navy text-white py-12 px-6">
+  <div class="max-w-3xl mx-auto">
+    <h1 id="title" class="text-3xl md:text-4xl font-bold mb-3"></h1>
+    <p id="desc" class="text-gray-300 md:text-lg max-w-2xl"></p>
+  </div>
+</div>
+
+<main class="max-w-3xl mx-auto px-6 py-10 w-full flex-grow">
+  <!-- Success State -->
+  <div id="done" class="hidden bg-white border border-line border-t-4 border-t-gold rounded-2xl p-10 text-center shadow-xl my-8" hidden>
+    <!-- Content injected by JS -->
+  </div>
+
+  <!-- Form -->
+  <form id="f" novalidate class="space-y-6"></form>
+</main>
+
+<footer class="bg-navy2 text-[#6b7a99] text-sm py-6 text-center mt-auto">
+  <p>&copy; 2026 Apex Core Holdings. All rights reserved.</p>
+</footer>
+
+<script>
+/* ---------- SETTINGS (edit these) ---------- */
+const ENDPOINT = 'https://script.google.com/macros/s/AKfycbyXLPU1BWowp2YmxCvCHm5Y5fq-mYHli0aAPnkEZ1S6y7CnyXlw4fAlhPLP6BfDTr-Y/exec?key=52e1e61ba9f14128bf88f36d97926eca93677a1f4486425eb8d5dcd045f44dcf';
+const CONTACT_EMAIL = 'apexcoreos@outlook.com';      
+const MIN_NOTE = 'Our fixed-price projects usually start at R5,000.'; 
+const PRIVACY_URL = '/privacy.html';                              
+
+/* ---------- FORM DEFINITIONS ---------- */
+const Q = k => (l, o) => Object.assign({ l, k }, o || {});
+const t = Q('t'), e = Q('e'), u = Q('u'), a = Q('a'), m = Q('m'), d = Q('d'), c = Q('c');
+const SVC = ['Social media management', 'SEO and blog writing', 'Website design and development', 'Graphic and brand design', 'Copywriting', 'Paid ads management', 'Virtual assistant'];
+
+const BRIEF = {
+  title: 'Send us your brief',
+  desc: 'Tell us what you need and we will reply within one business day with a fixed quote. This takes about 60 seconds.',
+  button: 'Send my brief', formId: 'native-lead',
+  done: ['Thanks, we have your brief', 'We will reply within one business day with a fixed quote. If you do not hear from us, check your spam folder.'],
+  sections: [{ t: 'About your project', q: [
+    t('Your full name', { r: 1, p: 'e.g. Thandi Nkosi' }),
+    e('Email address', { r: 1, p: 'you@yourbusiness.co.za' }),
+    t('Business name', { r: 1, p: 'e.g. Cape Plumbing Co.' }),
+    m('What do you need help with?', { r: 1, o: ['Social media management', 'SEO and blog writing', 'Website design or development', 'Graphic and brand design', 'Copywriting', 'Paid ads', 'Virtual assistant', 'Something else, or a mix of these'] }),
+    d('Budget range', { r: 1, h: 'A rough range helps us quote accurately. You can change it later.', o: ['Under R5,000', 'R5,000-R10,000', 'R10,000-R20,000', 'R20,000+', 'Not sure yet'] }),
+    a('Tell us about the project', { r: 1, p: 'Example: We are a six-person plumbing company in Durbanville. We need a new five-page website and our Google listing set up by the end of December. Our current site is outdated and gets no enquiries.' })
+  ]}]
+};
+
+const IN_SVC = 'Which services is this project for?';
+const INTAKE = {
+  title: 'Welcome to Apex Core: your project intake',
+  desc: 'Thank you for choosing us. This form gives our team everything we need to start. The more detail you share, the fewer questions we will have to ask later. It takes about 10 to 15 minutes.',
+  button: 'Send to our team', formId: 'native-intake',
+  done: ['Thank you, your team is on it', 'We have your details and our project lead will be in touch within one business day to confirm your start date and next steps.'],
+  sections: [
+    { t: 'About you', q: [
+      t('Business name', { r: 1, p: 'e.g. Cape Plumbing Co.', h: 'Enter exactly as it appears on your invoice.' }),
+      t('Your name', { r: 1 }), e('Your email address', { r: 1 }),
+      t('Who approves the work?', { r: 1, h: 'Name and email of the person who signs off on deliverables.', p: 'e.g. Thandi Nkosi, thandi@capeplumbing.co.za' }),
+      m('How quickly can you review and approve drafts?', { r: 1, o: ['Within 24 hours', 'Within 2 to 3 days', 'Within a week', 'It varies'] }),
+      c('How should we send drafts and ask you questions?', { o: ['Email', 'WhatsApp', 'Phone call', 'Our shared project board'] })
+    ]},
+    { t: 'Your business and audience', q: [
+      a('What does your business do, and who do you serve?', { r: 1, p: 'Two or three sentences, as you would explain it to a stranger.' }),
+      a('Who is your ideal customer?', { r: 1, h: 'Age, location, what they struggle with, what they want.' }),
+      a('What makes you different from your competitors?', { r: 1 }),
+      a('Top 3 competitors', { p: 'Paste links to their website or social pages, one per line.' }),
+      a('Which businesses or accounts do you admire online, and why?')
+    ]},
+    { t: 'Brand assets', q: [
+      a('Describe your brand voice and tone', { r: 1, h: 'e.g. Professional, friendly, edgy, playful, corporate.' }),
+      u('Link to brand assets', { h: 'A Google Drive or Dropbox folder with your logos, fonts, photos and brand guidelines.', p: 'https://drive.google.com/...' }),
+      t('Brand colours and fonts', { p: 'Hex codes and font names if you have them.' }),
+      a('Topics, words or styles we must avoid')
+    ]},
+    { t: 'Your project', q: [
+      c(IN_SVC, { r: 1, o: SVC }),
+      a('What does success look like in 90 days?', { r: 1 }),
+      a('Key dates, launches or deadlines', { p: 'e.g. Black Friday sale on 29 November, new branch opening in March.' })
+    ]},
+    { t: 'Social media management', w: [SVC[0]], q: [
+      c('Which platforms should we manage?', { r: 1, o: ['Instagram', 'Facebook', 'LinkedIn', 'TikTok', 'YouTube', 'X', 'Pinterest'] }),
+      a('List all social media handles or page links', { r: 1 }),
+      c('Preferred content formats', { o: ['Reels', 'Carousels', 'Static posts', 'Stories', 'Videos'] }),
+      m('How many posts per week?', { o: ['3', '5', '7', 'Daily', 'Not sure, advise me'] }),
+      m('Who will supply photos and videos?', { r: 1, o: ['You', 'We source or create them', 'Both'] }),
+      m('Should we reply to comments and DMs?', { r: 1, o: ['Yes, handle everything', 'Yes, but pass sales or sensitive messages to me', 'No, posting only'] })
+    ]},
+    { t: 'SEO and blog writing', w: [SVC[1]], q: [
+      u('Website address', { r: 1, p: 'https://' }),
+      a('What are your top 3 target keywords or phrases?'), a('What topics should we write about?'),
+      m('Articles per month', { o: ['2', '4', '8', '12', 'Not sure, advise me'] }),
+      d('What is your website built on?', { o: ['WordPress', 'Shopify', 'Wix', 'Squarespace', 'Custom', 'Other'] }),
+      m('Do you have Google Analytics and Search Console set up?', { o: ['Yes', 'No', 'Need help setting up'] })
+    ]},
+    { t: 'Website design and development', w: [SVC[2]], q: [
+      m('Is this a new website or a redesign?', { r: 1, o: ['New website', 'Redesign', 'Rebuild on a new platform'] }),
+      u('Link to your current website', { p: 'https://' }),
+      c('What is the main goal of the website?', { r: 1, o: ['Sales', 'Lead generation', 'Portfolio', 'Information', 'Other'] }),
+      a('List the pages you expect', { p: 'e.g. Home, About, Services, Contact' }),
+      a('Features you need', { p: 'e.g. booking system, payment gateway, user login' }),
+      m('Do you have all the website text and photos ready?', { r: 1, o: ['Yes', 'Some', 'No, I need help'] }),
+      a('Three websites whose design you admire, and why', { r: 1 })
+    ]},
+    { t: 'Design and copywriting', w: [SVC[3], SVC[4]], q: [
+      a('What do you need designed or written?', { r: 1 }),
+      t('Where will it be used?', { p: 'e.g. website, flyer, Instagram, email' }),
+      a('Examples you like')
+    ]},
+    { t: 'Paid ads management', w: [SVC[5]], q: [
+      c('Which ad platforms?', { r: 1, o: ['Facebook and Instagram', 'Google', 'LinkedIn', 'TikTok'] }),
+      d('Monthly ad budget', { r: 1, o: ['Under R3,000', 'R3,000-R10,000', 'R10,000-R30,000', 'R30,000+', 'Not sure yet'] }),
+      a('What should the ads achieve?', { r: 1 })
+    ]},
+    { t: 'Virtual assistant', w: [SVC[6]], q: [
+      a('What tasks will the assistant handle each day?', { r: 1 }),
+      a('Which software and tools will they use?', { p: 'e.g. Gmail, Slack, Asana, HubSpot, Excel' }),
+      t('Preferred working hours and time zone', { r: 1 }),
+      a('What can the assistant decide alone, and what needs your approval?')
+    ]},
+    { t: 'Access', n: 'Please do not type passwords into this form. We will ask you to give us access through each platform\'s own invite or sharing tools.', q: [
+      m('How will you give us access to your social media accounts?', { o: ['Add us as a partner or admin (recommended)', 'Share through a secure password manager', 'I need help with this', 'Not applicable'] }),
+      t('Who hosts your website and domain?', { p: 'e.g. Afrihost, GoDaddy, Wix, I am not sure' }),
+      m('How will you give us website and hosting access?', { o: ['Invite us as a user', 'Share through a secure password manager', 'I need help with this', 'Not applicable'] }),
+      e('Which email address should we send access invitations to?')
+    ]},
+    { t: 'Final notes', q: [
+      a('Any legal, compliance or industry rules we must follow?', { p: 'e.g. required disclaimers or regulated claims.' }),
+      a('Is there anything else our team should know?')
+    ]}
+  ]
+};
+
+/* ---------- ENGINE (no need to edit below) ---------- */
+const P = new URLSearchParams(location.search), KIND = P.get('f') === 'intake' ? 'intake' : 'brief', S = KIND === 'intake' ? INTAKE : BRIEF;
+const TYPE = { t: 'INPUT_TEXT', e: 'INPUT_EMAIL', u: 'INPUT_LINK', a: 'TEXTAREA', m: 'MULTIPLE_CHOICE', d: 'DROPDOWN', c: 'CHECKBOXES' };
+const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+const form = document.getElementById('f');
+document.title = S.title + ' | Apex Core Holdings';
+document.getElementById('title').textContent = S.title;
+document.getElementById('desc').textContent = S.desc;
+
+let n = 0;
+function field(q) {
+  q.id = 'q' + (n++);
+  
+  // Tailwind classes for modern inputs
+  const inputClasses = "w-full px-4 py-3 rounded-lg border border-line focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-all text-ink bg-white shadow-sm placeholder-gray-400";
+  const labelClasses = "block font-bold text-navy mb-2 text-sm md:text-base";
+  const helpClasses = "text-xs text-mute mb-2 mt-1";
+  
+  let h = '<div class="mb-6" data-q="' + q.id + '">';
+  h += '<label class="' + labelClasses + '">' + esc(q.l) + (q.r ? ' <span class="text-red-err">*</span>' : '') + '</label>';
+  if (q.h) h += '<div class="' + helpClasses + '">' + esc(q.h) + '</div>';
+  
+  const ph = q.p ? ' placeholder="' + esc(q.p) + '"' : '', lbl = ' aria-label="' + esc(q.l) + '"';
+  
+  if (q.k === 'a') {
+    h += '<textarea name="' + q.id + '" class="' + inputClasses + ' min-h-[120px] resize-y"' + ph + lbl + '></textarea>';
+  } else if (q.k === 'd') {
+    h += '<select name="' + q.id + '" class="' + inputClasses + ' cursor-pointer"' + lbl + '><option value="" disabled selected>Choose one...</option>' + q.o.map(o => '<option>' + esc(o) + '</option>').join('') + '</select>';
+  } else if (q.k === 'm' || q.k === 'c') {
+    h += '<div class="grid grid-cols-1 md:grid-cols-2 gap-3">';
+    h += q.o.map(o => `
+      <label class="flex items-center gap-3 p-3 border border-line rounded-lg cursor-pointer hover:bg-bgalt transition-colors bg-white">
+        <input type="${q.k === 'm' ? 'radio' : 'checkbox'}" name="${q.id}" value="${esc(o)}" class="w-5 h-5 text-navy focus:ring-gold accent-navy">
+        <span class="text-ink text-sm font-medium">${esc(o)}</span>
+      </label>
+    `).join('');
+    h += '</div>';
+  } else {
+    const pre = q.l === 'Business name' && KIND === 'intake' && P.get('business') ? ' value="' + esc(P.get('business')) + '"' : '';
+    h += '<input type="' + ({ t: 'text', e: 'email', u: 'url' })[q.k] + '" name="' + q.id + '" class="' + inputClasses + '"' + ph + lbl + pre + '>';
+  }
+  
+  if (q.l === 'Budget range') h += '<div class="bg-gold/10 border border-gold/50 rounded-lg p-3 text-sm text-navy font-medium mt-3" id="low" hidden>' + esc(MIN_NOTE) + '</div>';
+  return h + '</div>';
+}
+
+form.innerHTML = S.sections.map((s, i) => `
+  <section class="bg-white border border-line rounded-2xl p-6 md:p-8 shadow-sm mb-6" data-s="${i}" ${s.w ? 'hidden' : ''}>
+    <h2 class="text-xl font-bold text-navy mb-6 border-b border-line pb-3">${esc(s.t)}</h2>
+    ${s.n ? `<p class="text-sm text-mute bg-bgalt p-3 rounded-lg mb-4">${esc(s.n)}</p>` : ''}
+    ${s.q.map(field).join('')}
+  </section>
+`).join('') +
+  '<div class="absolute left-[-9999px]" aria-hidden="true"><label>Website <input type="text" name="hp" tabindex="-1" autocomplete="off"></label></div>' +
+  '<div id="msg" class="mb-6"></div>' +
+  '<button class="w-full bg-gold text-navy2 font-extrabold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:bg-yellow-400 hover:shadow-xl hover:-translate-y-0.5 mb-4" id="go" type="submit">' + esc(S.button) + '</button>' +
+  '<p class="text-center text-sm text-mute">We use your details only to respond to you. ' + (PRIVACY_URL ? ' <a href="' + esc(PRIVACY_URL) + '" class="text-navy hover:text-gold underline underline-offset-2 transition-colors">Privacy notice</a>' : '') + '</p>';
+
+const qOf = id => form.querySelector('[data-q="' + id + '"]');
+const all = () => S.sections.flatMap((s, i) => s.q.map(q => ({ q, s, i })));
+function read(q) {
+  const els = [...form.querySelectorAll('[name="' + q.id + '"]')];
+  if (q.k === 'c') return els.filter(x => x.checked).map(x => x.value);
+  if (q.k === 'm') { const x = els.find(y => y.checked); return x ? x.value : ''; }
+  return els[0].value.trim();
+}
+const isVisible = s => !form.querySelector('[data-s="' + S.sections.indexOf(s) + '"]').hidden;
+
+function sync() {
+  const svc = all().find(x => x.q.l === IN_SVC);
+  if (svc) {
+    const sel = read(svc.q);
+    S.sections.forEach((s, i) => { if (s.w) form.querySelector('[data-s="' + i + '"]').hidden = !s.w.some(w => sel.includes(w)); });
+  }
+  const low = document.getElementById('low'), b = all().find(x => x.q.l === 'Budget range');
+  if (low && b) low.hidden = !(MIN_NOTE && read(b.q) === 'Under R5,000');
+}
+form.addEventListener('change', sync);
+
+form.addEventListener('submit', async ev => {
+  ev.preventDefault();
+  form.querySelectorAll('.err').forEach(x => x.remove());
+  form.querySelectorAll('.border-red-err').forEach(x => x.classList.remove('border-red-err', 'ring-2', 'ring-red-err/50'));
+  
+  let first = null; const fields = [];
+  all().forEach(({ q, s }) => {
+    if (!isVisible(s)) return;
+    const v = read(q), empty = Array.isArray(v) ? !v.length : !v;
+    let bad = q.r && empty ? 'Please answer this question.' : '';
+    if (!bad && !empty && q.k === 'e' && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)) bad = 'Please enter a valid email address.';
+    if (!bad && !empty && q.k === 'u' && !/^https?:\/\/\S+\.\S+/i.test(v)) bad = 'Please enter a full link starting with https://';
+    
+    if (bad) { 
+      const box = qOf(q.id); 
+      box.classList.add('border-red-err', 'ring-2', 'ring-red-err/50'); 
+      box.insertAdjacentHTML('beforeend', '<div class="text-red-err text-sm mt-1 font-medium err">' + bad + '</div>'); 
+      first = first || box; 
+    }
+    fields.push({ label: q.l, type: TYPE[q.k], value: empty ? null : v });
+  });
+  
+  const msg = document.getElementById('msg');
+  if (first) { first.scrollIntoView({ behavior: 'smooth', block: 'center' }); msg.innerHTML = '<div class="bg-red-50 border border-red-200 text-red-600 rounded-lg p-4 text-sm font-medium">Please fix the highlighted questions.</div>'; return; }
+  msg.innerHTML = '';
+  if (form.elements.hp.value) return finish();           
+  ['client_id', 'business', 'source'].forEach(k => { if (P.get(k)) fields.push({ label: k, type: 'HIDDEN_FIELDS', value: P.get(k) }); });
+  
+  const id = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : Date.now() + '-' + Math.random().toString(16).slice(2);
+  const body = JSON.stringify({ hp: '', data: { responseId: id, formId: S.formId, formName: S.title, fields } });
+  
+  const btn = document.getElementById('go'); 
+  btn.disabled = true; 
+  btn.innerHTML = '<svg class="animate-spin h-5 w-5 mr-3 inline" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>Sending...';
+  
+  try {
+    await fetch(ENDPOINT, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body });
+    finish();
+  } catch (err) {
+    btn.disabled = false; 
+    btn.textContent = S.button;
+    msg.innerHTML = '<div class="bg-red-50 border border-red-200 text-red-600 rounded-lg p-4 text-sm font-medium">Sorry, that did not send. Please try again, or email us at <a href="mailto:' + esc(CONTACT_EMAIL) + '" class="underline font-bold">' + esc(CONTACT_EMAIL) + '</a>.</div>';
+  }
+});
+
+function finish() {
+  const dn = document.getElementById('done');
+  dn.innerHTML = `
+    <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+      <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+    </div>
+    <h2 class="text-3xl font-bold text-navy mb-4">${esc(S.done[0])}</h2>
+    <p class="text-mute text-lg max-w-md mx-auto mb-8">${esc(S.done[1])}</p>
+    <a href="/" class="inline-block bg-bgalt border border-line text-navy font-bold px-6 py-3 rounded-lg hover:bg-white transition-colors">&larr; Return to Home</a>
+  `;
+  dn.hidden = false; 
+  form.hidden = true; 
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+sync();
+</script>
+</body>
+</html>

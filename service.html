@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Our Services | Apex Core Holdings</title>
+<meta name="description" content="Explore the premium digital services offered by Apex Core Holdings.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<style type="text/tailwindcss">
+  @theme {
+    --color-navy: #0a192f;
+    --color-navy-light: #112240;
+    --color-gold: #c5a880;
+    --color-gold-dark: #b0956f;
+    --color-offwhite: #fcfcfc;
+    --color-slate-100: #f1f5f9;
+    --color-slate-300: #cbd5e1;
+    --color-slate-600: #475569;
+    --color-slate-800: #1e293b;
+    --font-sans: "DM Sans", sans-serif;
+    --font-serif: "Playfair Display", serif;
+  }
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-offwhite);
+    color: var(--color-slate-800);
+    -webkit-font-smoothing: antialiased;
+  }
+</style>
+</head>
+<body class="antialiased text-slate-800">
+
+<!-- HEADER -->
+<header class="bg-navy text-white sticky top-0 z-50 border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 py-5 flex justify-between items-center">
+    <a href="index.html" class="flex items-center gap-3">
+      <svg class="w-7 h-7 text-gold" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 22h20L12 2zm0 5.5l5.5 11h-11L12 7.5z"/></svg>
+      <span class="font-bold tracking-widest text-lg text-white">APEX <span class="text-gold">CORE</span></span>
+    </a>
+    <div class="flex items-center gap-6">
+      <a href="index.html" class="hidden md:inline text-sm font-medium text-slate-300 hover:text-white transition-colors">Back to Home</a>
+      <a href="apply.html" class="bg-gold text-navy font-bold px-6 py-2.5 rounded hover:bg-gold-dark transition-colors text-sm">Request a Quote</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO SECTION -->
+<section class="bg-navy-light text-white py-16 relative overflow-hidden">
+  <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 32px 32px;"></div>
+  <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
+    <p class="text-gold font-semibold tracking-[0.2em] uppercase text-xs mb-4">Our Services</p>
+    <h1 class="font-serif text-4xl md:text-5xl leading-tight mb-6 text-white">What We Do Best</h1>
+    <p class="text-slate-300 text-lg max-w-2xl mx-auto">Click on any of the services below to see a detailed breakdown of how we can help your business grow.</p>
+  </div>
+</section>
+
+<!-- TABS NAVIGATION -->
+<div class="bg-navy-light border-t border-white/10 sticky top-[73px] z-40 shadow-md">
+  <div class="max-w-7xl mx-auto px-4 lg:px-8">
+    <!-- The buttons are injected by JavaScript here -->
+    <div id="tab-buttons" class="flex overflow-x-auto hide-scrollbar gap-2 py-4">
+      <!-- Tabs inserted via JS -->
+    </div>
+  </div>
+</div>
+
+<!-- DYNAMIC CONTENT SECTION -->
+<section class="py-16 bg-white min-h-[500px]">
+  <div class="max-w-4xl mx-auto px-6 lg:px-8">
+    
+    <!-- Hero injected by JS -->
+    <div class="text-center mb-16">
+      <h2 id="page-title" class="font-serif text-4xl text-navy mb-4"></h2>
+      <p id="page-subtitle" class="text-slate-600 text-lg md:text-xl max-w-3xl mx-auto"></p>
+    </div>
+
+    <!-- What is it -->
+    <div class="mb-16">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="w-10 h-[2px] bg-gold"></div>
+        <h3 class="text-sm font-bold tracking-widest text-gold-dark uppercase">The Definition</h3>
+      </div>
+      
+      <h4 id="what-title" class="font-serif text-2xl text-navy mb-4"></h4>
+      
+      <div id="what-text" class="text-slate-600 text-lg leading-relaxed space-y-6"></div>
+    </div>
+
+    <!-- Why use it -->
+    <div class="bg-slate-50 border border-slate-200 p-8 md:p-12 mb-16 rounded-xl">
+      <h4 class="font-serif text-2xl text-navy mb-8">Why your business needs this</h4>
+      <ul id="why-list" class="space-y-6">
+        <!-- Bullets injected by JS -->
+      </ul>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <h4 id="cta-title" class="font-serif text-2xl text-navy mb-6"></h4>
+      <a href="apply.html" id="cta-btn" class="inline-block bg-navy text-white font-bold px-8 py-4 rounded hover:bg-gold hover:text-navy transition-colors text-lg shadow-lg"></a>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-navy py-10 border-t border-white/5 text-slate-400 text-sm">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+    <div class="flex items-center gap-3">
+      <svg class="w-6 h-6 text-gold" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 22h20L12 2zm0 5.5l5.5 11h-11L12 7.5z"/></svg>
+      <span class="font-bold tracking-widest text-white">APEX <span class="text-gold">CORE</span></span>
+    </div>
+    <div class="text-center md:text-right space-y-1">
+      <p>&copy; 2026 Apex Core Holdings. Cape Town, South Africa.</p>
+      <p>We use your details only to respond to your enquiry. <a href="privacy.html" class="text-white hover:text-gold underline underline-offset-4 transition-colors">Privacy Notice</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- JAVASCRIPT CONTENT ENGINE -->
+<script>
+// 1. The Database of Content
+const servicesData = {
+  'web-design': {
+    tabName: 'Web Design',
+    title: 'High-Converting <span class="italic text-gold">Web Design.</span>',
+    subtitle: 'Fast, mobile-responsive marketing websites and landing pages engineered to turn visitors into paying clients.',
+    whatTitle: 'What is High-Converting Web Design?',
+    whatText: [
+      'A high-converting website is not just a digital brochure; it is a strategic tool built to guide visitors through a specific journey. It goes beyond looking "pretty"—it uses psychological triggers, clear call-to-actions, and lightning-fast performance to turn anonymous browsers into qualified leads.',
+      'We don\'t just build websites. We engineer digital storefronts that establish authority, clearly communicate your value proposition, and make it effortless for clients to do business with you.'
+    ],
+    whyBullets: [
+      { title: 'Instant Credibility', text: 'In the digital age, your website is your first impression. A modern, clean, and fast website tells a client you are established and trustworthy before they even speak to you.' },
+      { title: 'Mobile-First Performance', text: 'Over 60% of web traffic is mobile. If your site doesn\'t load instantly and look perfect on a phone, you are losing money. We design for the small screen first.' },
+      { title: 'SEO Foundations', text: 'We build your site with technical SEO baked into the foundation, ensuring Google can easily crawl, understand, and rank your content.' }
+    ],
+    ctaTitle: 'Ready to upgrade your digital storefront?',
+    ctaBtn: 'Get a Fixed Quote for Web Design'
+  },
+  'custom-apps': {
+    tabName: 'Custom Apps',
+    title: 'Custom Web Apps <span class="italic text-gold">(PHP / Laravel).</span>',
+    subtitle: 'Secure, scalable web applications built with Laravel, Pure PHP, and MySQL.',
+    whatTitle: 'What is a Custom Web App?',
+    whatText: [
+      'Unlike a standard marketing website, a custom web application is a software tool built specifically to solve a unique business problem. It can include client portals, e-commerce systems, inventory management, automated booking systems, or internal CRM dashboards.',
+      'We build these applications using Laravel (the world\'s most popular PHP framework) and MySQL databases. This ensures your application is secure, incredibly fast, easy to scale, and immune to the limitations of WordPress plugins.'
+    ],
+    whyBullets: [
+      { title: 'Streamline Operations', text: 'Stop relying on Excel spreadsheets. A custom app automates your daily workflows, saving your team hours every week.' },
+      { title: 'Bank-Level Security', text: 'Laravel provides top-tier protection against SQL injection, cross-site scripting, and data breaches. Your client data remains completely secure.' },
+      { title: 'Total Ownership', text: 'When you use SaaS tools, you pay monthly forever. We build the app for you, meaning you own the code, the database, and the intellectual property.' }
+    ],
+    ctaTitle: 'Ready to build your custom app?',
+    ctaBtn: 'Get a Fixed Quote for Web Apps'
+  },
+  'seo': {
+    tabName: 'SEO',
+    title: 'SEO & Content <span class="italic text-gold">Strategy.</span>',
+    subtitle: 'Technical SEO foundations and authoritative blog content that helps your business rank higher on Google.',
+    whatTitle: 'What is SEO & Content Strategy?',
+    whatText: [
+      'Search Engine Optimization (SEO) is the art and science of getting your business to appear at the top of Google when potential clients search for your services. It is not about tricking the algorithm; it is about providing the clearest, most authoritative answer to your customer\'s questions.',
+      'We combine technical website fixes with high-quality, keyword-rich content to build a moat around your digital presence, ensuring you are found by the people who matter most.'
+    ],
+    whyBullets: [
+      { title: 'Free, Organic Traffic', text: 'Unlike paid ads, you don\'t pay for every click. SEO builds a long-term asset that brings in consistent, highly qualified traffic month after month.' },
+      { title: 'Outrank Competitors', text: 'If your competitors are ranking #1 for your main service, they are getting the clients. We build a strategy to outrank them.' },
+      { title: 'High Intent Buyers', text: 'People searching on Google are actively looking for a solution. SEO puts your business directly in front of them at the exact moment they are ready to buy.' }
+    ],
+    ctaTitle: 'Ready to dominate Google search?',
+    ctaBtn: 'Get a Fixed Quote for SEO'
+  },
+  'social-media': {
+    tabName: 'Social Media',
+    title: 'Social Media <span class="italic text-gold">Management.</span>',
+    subtitle: 'Strategic content calendars, community management, and audience growth handled by senior social managers.',
+    whatTitle: 'What is Social Media Management?',
+    whatText: [
+      'Social media management is the process of creating, scheduling, and engaging with your audience across platforms like Instagram, LinkedIn, and Facebook. It involves more than just posting pictures; it requires a strategic content calendar, brand voice consistency, and active community engagement.',
+      'We take the guesswork out of your social strategy, ensuring every post serves a purpose—whether that is building brand awareness, driving traffic, or generating direct leads.'
+    ],
+    whyBullets: [
+      { title: 'Top-of-Mind Awareness', text: 'When a client is finally ready to buy, you want them to remember your brand. Consistent, engaging content keeps you top-of-mind.' },
+      { title: 'Community Building', text: 'We don\'t just post and ghost. We reply to comments, answer DMs, and build a real relationship with your audience.' },
+      { title: 'Brand Authority', text: 'By sharing valuable insights and behind-the-scenes content, you position yourself as the expert in your industry.' }
+    ],
+    ctaTitle: 'Ready to build a loyal audience?',
+    ctaBtn: 'Get a Fixed Quote for Social Media'
+  },
+  'branding': {
+    tabName: 'Branding',
+    title: 'Brand & Graphic <span class="italic text-gold">Design.</span>',
+    subtitle: 'Visual identities, pitch decks, and marketing collateral that ensure your business looks established and trustworthy.',
+    whatTitle: 'What is Brand & Graphic Design?',
+    whatText: [
+      'Brand and graphic design is the visual language of your business. It includes your logo, colour palette, typography, pitch decks, and marketing flyers. A cohesive brand identity ensures that every touchpoint a client has with your business looks professional, consistent, and expensive.',
+      'We don\'t just make things look good; we create visual systems that communicate your core values and make it easy for clients to recognise and trust you.'
+    ],
+    whyBullets: [
+      { title: 'Stand Out in a Crowded Market', text: 'A generic logo and outdated colours make you blend in. Strategic design helps you stand out and capture attention instantly.' },
+      { title: 'Builds Instant Trust', text: 'High-quality design signals to clients that you pay attention to detail. It makes your business look more established and reliable.' },
+      { title: 'Total Consistency', text: 'We ensure your brand looks exactly the same on your website, your social media, and your printed brochures.' }
+    ],
+    ctaTitle: 'Ready to elevate your brand?',
+    ctaBtn: 'Get a Fixed Quote for Branding'
+  },
+  'copywriting': {
+    tabName: 'Copywriting',
+    title: 'Conversion <span class="italic text-gold">Copywriting.</span>',
+    subtitle: 'Persuasive website copy and email sequences written to speak directly to your ideal client\'s pain points.',
+    whatTitle: 'What is Conversion Copywriting?',
+    whatText: [
+      'Copywriting is the art of using words to persuade people to take action. It is the text on your website, the emails in your follow-up sequence, and the captions on your ads. Good copywriting doesn\'t just explain what you do; it taps into the psychology of your client.',
+      'We write copy that highlights your client\'s pain points, presents your service as the ultimate solution, and guides them step-by-step toward booking a call or making a purchase.'
+    ],
+    whyBullets: [
+      { title: 'Words Sell', text: 'Design catches the eye, but words make the sale. If your website copy is boring or confusing, visitors will leave without buying.' },
+      { title: 'Clarify Your Offer', text: 'We remove the jargon and clearly explain exactly what you do, who it\'s for, and why it matters.' },
+      { title: 'Higher Conversion Rates', text: 'We write persuasive call-to-actions that guide the reader step-by-step toward engaging with your business.' }
+    ],
+    ctaTitle: 'Ready to turn words into revenue?',
+    ctaBtn: 'Get a Fixed Quote for Copywriting'
+  },
+  'va': {
+    tabName: 'Virtual Assistant',
+    title: 'Virtual Assistant <span class="italic text-gold">Services.</span>',
+    subtitle: 'Reclaim your time. We handle your inbox, scheduling, data entry, and daily admin tasks.',
+    whatTitle: 'What is a Virtual Assistant?',
+    whatText: [
+      'A Virtual Assistant (VA) is a professional who handles your day-to-day administrative tasks remotely. This includes managing your inbox, scheduling meetings, formatting documents, handling customer support, and doing data entry.',
+      'We provide highly capable VAs who act as an extension of your team. They are trained in the latest software tools and ensure your operations run seamlessly, allowing you to focus on high-level growth.'
+    ],
+    whyBullets: [
+      { title: 'Reclaim Your Time', text: 'As a business owner, you should be focusing on high-level strategy and revenue generation. We take the repetitive tasks off your plate.' },
+      { title: 'Lower Overhead Costs', text: 'Hiring a full-time in-house admin costs significantly more than a dedicated VA. You get the same output for a fraction of the price.' },
+      { title: 'Expert Execution', text: 'Our VAs are trained in the latest tools (Google Workspace, Asana, Slack, etc.) and ensure your operations run seamlessly.' }
+    ],
+    ctaTitle: 'Ready to get your time back?',
+    ctaBtn: 'Get a Fixed Quote for a VA'
+  }
+};
+
+// 2. The Engine
+window.addEventListener('DOMContentLoaded', () => {
+  const tabContainer = document.getElementById('tab-buttons');
+  
+  // Create the Tab Buttons
+  Object.keys(servicesData).forEach((key, index) => {
+    const btn = document.createElement('button');
+    btn.className = "tab-btn whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-200 border border-white/20 text-slate-300 hover:text-white hover:bg-white/10";
+    btn.innerText = servicesData[key].tabName;
+    btn.onclick = () => activateTab(key, btn);
+    tabContainer.appendChild(btn);
+  });
+
+  // Function to switch the content
+  function activateTab(key, clickedBtn) {
+    // 1. Update Button Styles
+    const allBtns = document.querySelectorAll('.tab-btn');
+    allBtns.forEach(b => {
+      b.className = "tab-btn whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-200 border border-white/20 text-slate-300 hover:text-white hover:bg-white/10";
+    });
+    // Highlight the active button in Gold
+    clickedBtn.className = "tab-btn whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-200 bg-gold text-navy shadow-md border border-gold";
+
+    // 2. Get the Data
+    const data = servicesData[key];
+
+    // 3. Update the Layout
+    document.getElementById('page-title').innerHTML = data.title;
+    document.getElementById('page-subtitle').innerText = data.subtitle;
+    document.getElementById('what-title').innerText = data.whatTitle;
+    
+    // Inject Paragraphs
+    document.getElementById('what-text').innerHTML = data.whatText.map(p => `<p>${p}</p>`).join('');
+
+    // Inject Bullets
+    const whyList = document.getElementById('why-list');
+    whyList.innerHTML = data.whyBullets.map(bullet => `
+      <li class="flex items-start gap-4">
+        <div class="w-8 h-8 rounded-full bg-gold/20 flex items-center justify-center shrink-0 mt-1">
+          <svg class="w-5 h-5 text-gold-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+        </div>
+        <div>
+          <h5 class="font-bold text-navy text-lg mb-1">${bullet.title}</h5>
+          <p class="text-slate-600">${bullet.text}</p>
+        </div>
+      </li>
+    `).join('');
+
+    // Inject CTA
+    document.getElementById('cta-title').innerText = data.ctaTitle;
+    document.getElementById('cta-btn').innerText = data.ctaBtn;
+  }
+
+  // Initialize with the first tab (Web Design)
+  const firstKey = Object.keys(servicesData)[0];
+  activateTab(firstKey, document.querySelector('.tab-btn'));
+});
+</script>
+
+<style>
+  /* Hides the scrollbar on the tabs menu for a cleaner look */
+  .hide-scrollbar::-webkit-scrollbar { display: none; }
+  .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
+
+</body>
+</html>
